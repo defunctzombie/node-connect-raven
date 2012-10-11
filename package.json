@@ -1,0 +1,29 @@
+{
+  "name": "connect-raven",
+  "version": "0.0.0",
+  "description": "connect error handling middleware logging via raven",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/shtylman/node-connect-raven.git"
+  },
+  "keywords": [
+    "connect",
+    "raven",
+    "sentry"
+  ],
+  "dependencies": {
+    "raven": "git://github.com/shtylman/raven-node.git#b88c10"
+  },
+  "devDependencies": {
+    "express": "~3.0.0rc5",
+    "mocha": "~1.6.0",
+    "nock": "0.13.4",
+    "request": "2.11.4"
+  },
+  "author": "Matt Robenolt <matt@ydekproductions.com>",
+  "license": "BSD"
+}
