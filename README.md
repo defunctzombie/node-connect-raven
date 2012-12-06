@@ -1,6 +1,6 @@
 # connect-raven
 
-connect/express error middleware logging through raven
+connect/[express](http://expressjs.com/) error middleware logging through [raven](https://github.com/mattrobenolt/raven-node)
 
 ## use
 
