@@ -24,6 +24,12 @@ app.get('/', function(req, res, next) {
     next(new Error('foobar'));
 });
 
+app.get('/404', function(req, res, next) {
+    var err = new Error('foo');
+    err.status = 404;
+    next(err);
+});
+
 test('listen', function(done) {
     app.listen(3000, function() {
         done();
@@ -55,4 +61,22 @@ test('basic', function(done) {
     });
 
     request('http://localhost:3000');
+});
+
+test('basic', function(done) {
+    var scope = nock('https://app.getsentry.com')
+        .filteringRequestBody(/.*/, '*')
+        .post('/api/store/', '*')
+        .reply(200, function(uri, body) {
+            assert(false);
+        });
+
+    client.on('logged', function() {
+        assert(!scope.isDone());
+
+        // give time for http request to go to nock
+        setTimeout(done, 500);
+    });
+
+    request('http://localhost:3000/404');
 });

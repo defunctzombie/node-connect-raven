@@ -8,6 +8,13 @@ module.exports = function connectMiddleware(client) {
 
     return function(err, req, res, next) {
 
+        var status = err.status || err.statusCode || err.status_code || 500;
+
+        // skip anything not marked as an internal server error
+        if (status < 500) {
+            return next(err);
+        }
+
         var packet = {};
 
         // decorate packet with http interface
