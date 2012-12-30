@@ -16,7 +16,7 @@
     "sentry"
   ],
   "dependencies": {
-    "raven": "git://github.com/shtylman/raven-node.git#b88c10"
+    "raven": "shtylman/raven-node#v1.0.0-dz1"
   },
   "devDependencies": {
     "express": "~3.0.0rc5",
